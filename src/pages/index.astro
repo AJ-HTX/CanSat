@@ -16,15 +16,31 @@ console.log(error);
 	<body>
 		<h1>Målinger</h1>
 
+		<h2>
+			Temperatur
+		</h2>
 		<ul>
             {
                 data.map((row) => (
                     <li>
-                        Måling af {row.temperatur} grader.
+                        Måling på {row.temperatur} grader
                         d. {new Date(row.created_at).toLocaleString()}
                     </li>
                 ))
             }
         </ul>
+		<h2>
+			Tryk
+		</h2>
+		<u1>
+			{
+				data.map((row) => (
+					<li>
+						Måling på {row.tryk} hPa
+						d. {new Date(row.created_at).toLocaleString()}
+					</li>
+				))
+			}
+		</u1>
 	</body>
 </html>
