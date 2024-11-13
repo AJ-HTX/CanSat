@@ -1,0 +1,14 @@
+---
+const temp = Astro.url.searchParams.get("temp") || "notemp";
+const pres = Astro.url.searchParams.get("pres") || "nopres";
+console.log(temp, pres);
+
+import { supabase } from "../lib/supabase";
+
+if (temp) {
+	const { data, error } = await supabase
+		.from("measurements")
+		.insert({ temperatur: parseFloat(temp), tryk: parseFloat(pres) });
+	if (error) console.log(`Insert error: ${error}`);
+}
+---
