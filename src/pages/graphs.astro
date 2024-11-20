@@ -1,0 +1,15 @@
+---
+import { supabase } from "../lib/supabase";
+const { data } = await supabase.from("measurements").select();
+---
+
+<html>
+    <head>
+        <title>
+            Grafer
+        </title>
+    </head>
+    <body>
+        <button type="button" onclick="location.href='../'">Tilbage til hovedmenu</button>
+    </body>
+</html>

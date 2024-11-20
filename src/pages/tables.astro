@@ -1,0 +1,49 @@
+---
+import { supabase } from "../lib/supabase";
+const { data } = await supabase.from("measurements").select();
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="/styles.css" type="text/css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Eksempel</title>
+	</head>
+	<body>
+		<button type="button" onclick="location.href='../'">Tilbage til hovedmenu</button>
+		<h1>Målinger</h1>
+
+		<div class="parent">
+			<div class="child float-left-child">
+				<h2>Temperatur</h2>
+				<ul>
+					{
+						data.map((row) => (
+							<li>
+								Måling på {row.temperatur} grader d.{" "}
+								{new Date(row.created_at).toLocaleString()}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="child float-left-child">
+				<h2>Tryk</h2>
+				<u1>
+					{
+						data.map((row) => (
+							<li>
+								Måling på {row.tryk} hPa d.{" "}
+								{new Date(row.created_at).toLocaleString()}
+							</li>
+						))
+					}
+				</u1>
+			</div>
+		</div>
+	</body>
+</html>
