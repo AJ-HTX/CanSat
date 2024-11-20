@@ -7,15 +7,10 @@ const { data } = await supabase.from("measurements").select();
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="/styles.css" type="text/css" rel="stylesheet">
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Eksempel</title>
-		<style>
-			.float-left-child {
-				float: left;
-				margin-left: 20px;
-			}
-		</style>
 	</head>
 	<body>
 		<h1>Målinger</h1>
