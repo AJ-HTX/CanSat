@@ -13,7 +13,7 @@ const { data } = await supabase.from("measurements").select();
 		<title>Forside</title>
 	</head>
 	<body>
-		<button type="button" onclick="location.href='/tables'">Gå til rå data</button>
-        <button type="button" onclick="location.href='/graphs'">Gå til grafer</button>
+		<button class="btn" type="button" onclick="location.href='/tables'">Gå til rå data</button>
+        <button class="btn" type="button" onclick="location.href='/graphs'">Gå til grafer</button>
 	</body>
 </html>

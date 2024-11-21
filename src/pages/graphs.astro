@@ -5,11 +5,12 @@ const { data } = await supabase.from("measurements").select();
 
 <html>
     <head>
+        <link href="/styles.css" type="text/css" rel="stylesheet">
         <title>
             Grafer
         </title>
     </head>
     <body>
-        <button type="button" onclick="location.href='../'">Tilbage til hovedmenu</button>
+        <button class="btn" type="button" onclick="location.href='../'">Tilbage til forside</button>
     </body>
 </html>
