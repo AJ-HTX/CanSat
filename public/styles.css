@@ -25,6 +25,27 @@
     text-align: left; 
     vertical-align: middle; 
     padding:10px 10px;
-    float: top;
     margin: 10px;
+    float: top;
+}
+
+.top-layer {
+    float: left;
+    vertical-align: top;
+}
+
+.return {
+    position: absolute;
+}
+
+.container {
+    margin-top: 40px;
+    width: 45%;
+    height: 22.5%;
+    float: left;
+}
+
+#data-tables {
+    position: absolute;
+    margin-top: 50px;
 }

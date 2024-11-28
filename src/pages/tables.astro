@@ -7,45 +7,53 @@ const { data } = await supabase.from("measurements").select();
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link href="/styles.css" type="text/css" rel="stylesheet">
+		<link href="/styles.css" type="text/css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Eksempel</title>
 	</head>
 	<body>
-		<div class="return">
-			<button class="btn" type="button" onclick="location.href='../'">Tilbage til forside</button>
+		<div>
+			<div class="top-layer">
+				<button class="btn return" type="button" onclick="location.href='../'">
+					Tilbage til forside
+				</button>
+			</div>
+
+			<div class="top-layer">
+				<h1 style="margin-left: 150px;">
+					Målinger
+				</h1>
+			</div>
 		</div>
-		<div class="parent">
-		<h1>Målinger</h1>
-			<div class="box-styling float-left-child">
-				<div style="float: left;">
-					<h2>Temperatur</h2>
-					<ul class="height-limit">
-						{
-							data.map((row) => (
-								<li class="list-styling">
-									{row.temperatur} grader d.{" "}
-									{new Date(row.created_at).toLocaleString()}
-								</li>
-							))
-						}
-					</ul>
-				</div>
-				
-				<div style="float: left;">
-					<h2>Tryk</h2>
-					<ul class="height-limit">
-						{
-							data.map((row) => (
-								<li class="list-styling">
-									{row.tryk} hPa d.{" "}
-									{new Date(row.created_at).toLocaleString()}
-								</li>
-							))
-						}
-					</u1>
-				</div>	
+
+		<div id="data-tables">
+			<div class="float-left-child">
+				<h2>Temperatur</h2>
+				<ul class="height-limit">
+					{
+						data.map((row) => (
+							<li class="list-styling">
+								{row.temperatur} grader d.{" "}
+								{new Date(row.created_at).toLocaleString()}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="float-left-child">
+				<h2>Tryk</h2>
+				<ul class="height-limit">
+					{
+						data.map((row) => (
+							<li class="list-styling">
+								{row.tryk} hPa d.{" "}
+								{new Date(row.created_at).toLocaleString()}
+							</li>
+						))
+					}
+				</ul>
 			</div>
 		</div>
 	</body>

@@ -1,16 +1,72 @@
 ---
 import { supabase } from "../lib/supabase";
 const { data } = await supabase.from("measurements").select();
+const tabledata = data;
 ---
 
-<html>
+<html lang="en">
     <head>
         <link href="/styles.css" type="text/css" rel="stylesheet">
-        <title>
-            Grafer
-        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Charts</title>
     </head>
     <body>
-        <button class="btn" type="button" onclick="location.href='../'">Tilbage til forside</button>
+        <button class="btn return" type="button" onclick="location.href='../'">Tilbage til forsiden</button>
+        <div class="container">
+            <canvas id="chart_canvas"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="chart_canvas2"></canvas>
+        </div>
     </body>
 </html>
+<script is:inline src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script is:inline define:vars={{tabledata}}>
+    console.log(tabledata)
+    let id = [];
+    let temp = [];
+    let pres = [];
+    
+    for ( let i of tabledata ) {
+        temp.push(i.temperatur);
+        pres.push(i.tryk);
+        let time = (new Date(i.created_at)).toLocaleTimeString()
+        id.push(time);
+    }
+    
+    let ctx = document.querySelector("#chart_canvas").getContext("2d");
+    let chart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: 
+                id,
+            
+            datasets: [
+                {
+                    label: "Temperatur",
+                    data: temp,
+                },
+            ],
+        },
+        options: {},
+    });
+
+    let ctx2 = document.querySelector("#chart_canvas2").getContext("2d");
+    let chart2 = new Chart(ctx2, {
+        type: "line",
+        data: {
+            labels: 
+                id,
+            
+            datasets: [
+                {
+                    label: "Tryk",
+                    data: pres,
+                },
+            ],
+        },
+        options: {},
+    });
+</script>
