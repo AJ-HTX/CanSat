@@ -26,7 +26,14 @@
     vertical-align: middle; 
     padding:10px 10px;
     margin: 10px;
-    float: top;
+}
+
+.btnfront {
+    text-align: center;
+    vertical-align: middle;
+    padding:15px 15px;
+    margin: 10px;
+    float: none;
 }
 
 .top-layer {
@@ -40,9 +47,16 @@
 
 .container {
     margin-top: 40px;
+    margin-left: 2%;
     width: 45%;
     height: 22.5%;
     float: left;
+}
+
+.container1 {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #data-tables {
